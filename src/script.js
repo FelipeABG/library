@@ -11,3 +11,7 @@ function Book(title, author, pages, read){
         return `${title} by ${author}, ${pages} pages, ${read ? "read" : "not read yet"}`;
     }
 }
+
+function openDialog(){
+    document.querySelector('.add-book-container').showModal();
+}

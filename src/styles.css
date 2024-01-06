@@ -2,7 +2,8 @@
     --shadow:rgba(0, 0, 0, 0.24) 0px 3px 8px;
     --blue: #0e7490;
 
-    font-family: "Roboto", sans-serif;   
+    font-family: "Roboto", sans-serif; 
+    cursor: default;
 }
 
 body, html{
@@ -10,6 +11,7 @@ body, html{
     height: 100%;
     padding: 0;
     margin: 0;
+    text-decoration: none;
 }
 
 body{
@@ -43,5 +45,35 @@ body{
 }
 
 .logo-img{
-    width: 50px;
+    width: 55px;
+}
+
+.add-book-button-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.6rem;
+    gap: 7px;
+    height: 50px;
+}
+
+.add-book-button-container:hover{
+    background-color: #4c90a2;
+}
+
+.add-book-img{
+    width: 20px;
+}
+
+.add-book-container{
+    width: 250px;
+    height: 350px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.form-container{
+    width: 100%;
+    height: 100%;
 }
