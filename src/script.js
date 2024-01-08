@@ -27,3 +27,7 @@ function addBookToLibrary(){
 
     library.push(new Book(data.title, data.author, data.pages, data.read))
 }
+
+function displayBooks(){
+    
+}
