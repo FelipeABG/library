@@ -19,7 +19,7 @@
         </div>
         
         <dialog class="add-book-container">
-            <form class="book-form">
+            <form class="book-form" method="dialog">
                 <h2>Add New Book</h2>
                 <input type="text" required placeholder="Title" class="input" name="title">
                 <input type="text" required placeholder="Author" class="input" name="author">
@@ -28,7 +28,7 @@
                     <label for="read">Have you read it?</label>
                     <input type="checkbox" class="checkbox" name="read" id="read">
                 </div>
-                <button class="submit-button">submit</button>
+                <button onclick="addBookToLibrary()" class="submit-button">submit</button>
             </form>
         </dialog>
     </div>
@@ -36,5 +36,5 @@
     <div class="main-container">
         
     </div>
-</body>
+</body> 
 </html>
