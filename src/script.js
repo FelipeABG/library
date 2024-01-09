@@ -41,6 +41,20 @@ function openDialog(){
     document.querySelector('.add-book-container').showModal();
 }
 
+function closeDialog(e){
+    const dialog = document.querySelector('.add-book-container')
+    const dialogDimensions = dialog.getBoundingClientRect()
+
+    if (
+        e.clientX < dialogDimensions.left ||
+        e.clientX > dialogDimensions.right ||
+        e.clientY < dialogDimensions.top ||
+        e.clientY > dialogDimensions.bottom
+    ) {
+        dialog.close()
+    }
+}
+
 function addBookToLibrary(){
     const form = document.querySelector('.book-form')
 
@@ -88,3 +102,4 @@ function displayBooks(){
         `
     })
 }
+
