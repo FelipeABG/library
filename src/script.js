@@ -13,15 +13,13 @@ function Book(title, author, pages, read){
         return `${title} by ${author}, ${pages} pages, ${read ? "read" : "not read yet"}`;
     }
 
+    this.setId = (id) => {      
+        this.id = id;
+    }
 }
 
 Book.prototype.toggleRead = () => {
-    if(this.read){
-        this.read = false;
-    }
-    else{
-        this.read = true;
-    }
+    this.read = !this.read;
 }
 
 function openDialog(){
@@ -34,7 +32,18 @@ function addBookToLibrary(){
     let formData = new FormData(form)
     let data = Object.fromEntries(formData)
 
-    library.push(new Book(data.title, data.author, data.pages, data.read === "on" ? true : false))
+    let book = new Book(data.title, data.author, data.pages, data.read === "on" ? true : false)
+
+    library.push(book)
+    book.setId(library.length - 1)
+}
+
+function removeBookFromLibrary(e){
+    let card = e.parentNode.parentNode
+    let id = card.id
+
+    delete library[id]
+    displayBooks()
 }
 
 function displayBooks(){
@@ -44,7 +53,7 @@ function displayBooks(){
     library.forEach((book) => {
         container.innerHTML += 
         `
-            <div class="card">
+            <div class="card" id="${book.id}">
                 <div class="title">
                     <h2>${book.title}</h2>
                 </div>
@@ -58,7 +67,7 @@ function displayBooks(){
                 </div>
                 <div class="buttons">
                     <button class="read-button">Read</button>
-                    <button class="delete-button">Delete</button>
+                    <button class="delete-button" onclick="removeBookFromLibrary(this)">Delete</button>
                 </div>
             </div>
         `
