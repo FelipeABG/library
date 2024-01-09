@@ -60,13 +60,16 @@ body{
     height: 20%;
 }
 
-.author, .page-number{
+.author, 
+.page-number{
     display: flex;
     align-items: center;
-    gap: 5px;
     height: 30%;
-
     color: var(--blue);
+}
+
+.author{
+    border-bottom: 1px solid var(--blue);
 }
 
 .author p, .page-number p{
