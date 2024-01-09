@@ -23,7 +23,6 @@ function Book(title, author, pages, read){
 }
 
 function changeStatus(e){
-    const button = document.querySelector('.read-button')
     let card = e.parentNode.parentNode
     let id = card.id
 
@@ -31,9 +30,9 @@ function changeStatus(e){
     console.log(library[id].read)
 
     if(library[id].read){
-        button.textContent = "Read"
+        e.textContent = "Read"
     }else{
-        button.textContent = "Not Read"
+        e.textContent = "Not Read"
     }
 }
 
