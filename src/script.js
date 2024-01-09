@@ -16,10 +16,25 @@ function Book(title, author, pages, read){
     this.setId = (id) => {      
         this.id = id;
     }
+
+    this.toggleRead = () => {
+        this.read = !this.read;
+    }
 }
 
-Book.prototype.toggleRead = () => {
-    this.read = !this.read;
+function changeStatus(e){
+    const button = document.querySelector('.read-button')
+    let card = e.parentNode.parentNode
+    let id = card.id
+
+    library[id].toggleRead()
+    console.log(library[id].read)
+
+    if(library[id].read){
+        button.textContent = "Read"
+    }else{
+        button.textContent = "Not Read"
+    }
 }
 
 function openDialog(){
@@ -66,7 +81,7 @@ function displayBooks(){
                     <p>${book.pages}</p>
                 </div>
                 <div class="buttons">
-                    <button class="read-button">Read</button>
+                    <button class="read-button" onclick="changeStatus(this)">${book.read ? "Read" : "Not Read"}</button>
                     <button class="delete-button" onclick="removeBookFromLibrary(this)">Delete</button>
                 </div>
             </div>
